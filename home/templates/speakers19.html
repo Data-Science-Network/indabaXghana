@@ -45,7 +45,7 @@
 
          <!-- navigation menu -->
          <li class="active">
-          <a data-scroll href="index19.html">Home</a>
+          <a data-scroll href="/indabax19">Home</a>
         </li>
         <li>
           <a data-scroll href="#about">About</a>
@@ -54,13 +54,13 @@
           <a href="/speaker19">Speakers</a>
         </li>
         <li>
-          <a data-scroll href="#ts-schedule">Schedule</a>
+          <a data-scroll href="/indabax19#ts-schedule">Schedule</a>
         </li>
         <li>
-          <a data-scroll href="#sponsors">Sponsors</a>
+          <a data-scroll href="/indabax19#sponsors">Sponsors</a>
         </li>
         <li>
-          <a data-scroll href="#location">Location</a>
+          <a data-scroll href="/indabax19#location">Location</a>
         </li>
 
         </ul>
@@ -172,5 +172,9 @@
   <script src="{% static 'assets19/js/main.js' %}">
   </script>
 
+<script>
+  var static_url = "{% get_static_prefix %}";
+  var media_url = "{% get_media_prefix %}";
+</script>
 </body>
 </html>
