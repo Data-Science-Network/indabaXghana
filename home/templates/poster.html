@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Call for Posters | Ghana Data Science Summit" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+
+    <!--Banner Inner-->
+    <section>
+        <div class="lgx-banner lgx-banner-inner">
+            <div class="lgx-page-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="lgx-heading-area">
+                                <div class="lgx-heading lgx-heading-white">
+                                    <h2 class="heading">Call for Posters</h2>
+                                </div>
+                                <ul class="breadcrumb">
+                                    <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                                    <li class="active">Call for Posters</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--//.ROW-->
+                </div><!-- //.CONTAINER -->
+            </div><!-- //.INNER -->
+        </div>
+    </section> <!--//.Banner Inner-->
+
+
+    <main>
+        <div class="lgx-page-wrapper lgx-page-wrapper-none">
+ 
+            <!--ABOUT-->
+            <section>
+                <div id="lgx-about" class="lgx-about">
+                    <div class="lgx-inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="lgx-about-img">
+                                        <img src="{% static 'assets/img/poster1.png' %}" alt="poster">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-7">
+                                    <div class="lgx-about-content-area">
+                                        <div class="lgx-heading">
+                                            <h2 class="heading">BACKGROUND AND SCOPE</h2>
+                                        </div>
+                                        <div class="lgx-about-content">
+                                            <p class="text">
+                                                The IndabaX Ghana 2020 aims to create an inclusive platform where everyone - students, professors, 
+                                                researchers, businesses, start-ups, and leaders - can connect and enhance capacity in data science and 
+                                                analytics (including data mining, machine learning, and artificial intelligence).   
+                                                <br>
+                                                Last year, the maiden Ghana Data Science Summit (IndabaX Ghana 2019) brought together about 200 
+                                                people to learn, connect and network. The poster presentation session was very exciting! We saw 
+                                                posters on natural language processing, credit scoring (machine learning) , computer vision, 
+                                                applications of machine learning  in agriculture to mention a few. Participants engaged the presenters
+                                                through questioning, listening, giving feedback, exchanging contacts for possible  collaborations, 
+                                                and what have you. The top three poster presenters were selected and awarded by Deep Learning Indaba, 
+                                                Google, and Microsoft respectively. 
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="lgx-about-content">
+                                <p class="text">
+                                    This year, we hope to receive more poster presentations  as our participants for last year indicated they 
+                                    enjoyed and learned a lot. The poster abstracts submitted will undergo a thorough selection process  to 
+                                    ensure the content is great and will be beneficial to our participants. We welcome submissions related 
+                                    but not limited to data science, machine learning, data mining, artificial intelligence. Posters that 
+                                    meet one or more of the <a href="https://www.cdp.net/en/policy-and-public-affairs/sustainable-development-goals/all-sustainable-development-goals" target="/">Sustainable Development Goals (SDGs)</a> are highly encouraged. Female participants 
+                                    are also highly encouraged to submit posters. 
+                                    <br>
+                            <h3>Possible Poster Topics Areas</h3>
+                                    <ul>
+                                        <li>Data Science</li>
+                                        <li>Natural Language Processing</li>
+                                        <li>Machine Learning</li>
+                                        <li>Big Data</li>
+                                        <li>Data Mining </li>
+                                        <li>Internet of Things (IOT)</li>
+                                        <li>Artificial Intelligence</li>
+                                        <li>Business Intelligence</li>
+                                        <li>Computer Vision</li>
+                                        <li>Applications of machine learning</li>
+
+                                    </ul>
+                                <br>
+                                <h3>Steps to Submit your poster abstract</h3>
+                                    <ol>
+                                        <li><a href="http://bit.ly/gh-datascience20">Apply</a> for the conference</li>
+                                        <li>In the application, select to present a paper/poster and write a brief abstract about you paper. </li>
+                                        <li>Done! Wait to receive notification on your selection!</li>
+                                     </ol>   
+
+                                    <br>
+                                     <h3>Note</h3>
+                                    <ul>
+                                    <li>Poster submission deadline: <b>April 7, 2020</b></li>
+                                    <li>Notification of Acceptance: <b>April 20, 2020</b></li>
+                                    <li>Submission of final poster: <b>May 20, 2020</b></li>
+                                    <li>Authors are responsible for printing their own posters</li>
+                                    <li>All posters must be A0 size</li>
+                                    <li>There are no strict poster templates but posters should include title, author’s name and institutions, introduction of the poster, methods used, results and discussions, conclusion and recommendations (include images to make it more visual)</li>
+                                </p>
+                                
+                            </div>
+                        </div><!-- //.CONTAINER -->
+                    </div><!-- //.INNER -->
+                </div>
+            </section>
+            <!--ABOUT END-->
+        </div>
+    </main>
+
+    {% include 'footerO.html' %}
+
+{% endblock %}

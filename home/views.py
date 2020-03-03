@@ -29,5 +29,12 @@ def faq(request):
     template = 'faq.html'
     return render(request, template, context)
 
+
+def poster(request):
+    context = {}
+    template = 'poster.html'
+    return render(request, template, context)
+
+
 def handler404(request, exception):
     return render(request, '404.html', locals())

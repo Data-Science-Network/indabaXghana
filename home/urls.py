@@ -7,6 +7,7 @@ app_name = 'home'
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home_list'),
     path('faq', view=views.faq, name='faq'),
+    path('poster', view=views.poster, name='poster'),
     path('idabax19', view=views.home19, name='home19'),
     path('speaker19', view=views.speakers19, name='speaker19'),
 ]
