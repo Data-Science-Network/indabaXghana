@@ -50,12 +50,12 @@
                         "show": true
                     },
                     "Minutes": {
-                        "text": "Minutes",
+                        "text": "Min",
                         "color": "#00acee",
                         "show": true
                     },
                     "Seconds": {
-                        "text": "Seconds",
+                        "text": "Sec",
                         "color": "#483fa1",
                         "show": true
                     }
