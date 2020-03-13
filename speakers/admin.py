@@ -5,7 +5,7 @@ from  .models import Speaker
 
 
 class SpeakerAdmin(SummernoteModelAdmin):
-    summernote_fields = ('biography',)
+    summernote_fields = ('bio',)
     
 
 admin.site.register(Speaker, SpeakerAdmin)

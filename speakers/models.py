@@ -31,6 +31,7 @@ class Speaker(models.Model):
     position = models.CharField(max_length=200, help_text="Position of the speaker eg. CEO")
     company = models.CharField(max_length=200, help_text="Name of Organization speaker is from. eg. Google")
     biography = models.TextField()
+    bio = models.TextField(null=True, default="", blank=True,)
     twitter = models.CharField(max_length=100, null=True, help_text="Please enter only the user name eg.'mawy_7' ", default="", blank=True,)
     linkedin = models.CharField(max_length=100, null=True, help_text="Please enter only the user name eg. in/mawy7 ", default="", blank=True,)
     website = models.CharField(max_length=100, null=True, default="", blank=True,)
