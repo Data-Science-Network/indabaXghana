@@ -63,7 +63,7 @@
                                             </div>
                                         <div class="speaker-info">
                                             <h3 class="title"><a href="{% url 'speaker_detail' speaker.slug %}">{{ speaker.speaker_name|truncatechars:20 }}</a></h3>
-                                            <h4 class="subtitle">{{ speaker.position }}</h4>
+                                            <h4 class="subtitle">{{ speaker.position|truncatechars:20 }}</h4>
                                             <h5 class="subtitle"> {{ speaker.company|truncatechars:20 }}</h5>
                                         </div>
                                     </figcaption>
