@@ -61,7 +61,7 @@
 
                                             </div>
                                         <div class="speaker-info">
-                                            <h3 class="title"><a href="{% url 'speaker_detail' speaker.slug %}">{{ speaker.speaker_name }}</a></h3>
+                                            <h3 class="title"><a href="{% url 'speaker_detail' speaker.slug %}">{{ speaker.speaker_name|truncatechars:20 }}</a></h3>
                                             <h4 class="subtitle">{{ speaker.position }}</h4>
                                             <h5 class="subtitle"> {{ speaker.company }}</h5>
                                         </div>
@@ -71,10 +71,7 @@
                             {% else %}
                             
                             {% endif %}
-                            {% endfor %}
-
-                            <h3 class="subheading">Speakers would be annouced soon!</h3>
-                            
+                            {% endfor %}  
                         </div>
                     </div>
                    
