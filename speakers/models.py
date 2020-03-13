@@ -10,6 +10,9 @@ from django_slugify_processor.text import slugify
 from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.encoding import python_2_unicode_compatible
 
+
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFit
 @python_2_unicode_compatible
  
 class Speaker(models.Model):
@@ -21,16 +24,16 @@ class Speaker(models.Model):
 
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     speaker_name = models.CharField(max_length=200)
-    talk_title = models.CharField(max_length=200,default=" ")
+    talk_title = models.CharField(max_length=200, default=" ", null=True, blank=True,)
     talk_type = models.CharField(choices=TALK_TYPES, max_length=20,default=" ")
     talk_description = models.TextField(default=" ")
-    profile_image = models.ImageField(upload_to='speakers/',default="speaker.png")
+    profile_image = ProcessedImageField(upload_to='speakers/',default="speaker.png", processors=[ResizeToFit(600, 600, upscale=False)], format='jpeg', options={'quality': 90})
     position = models.CharField(max_length=200, help_text="Position of the speaker eg. CEO")
     company = models.CharField(max_length=200, help_text="Name of Organization speaker is from. eg. Google")
     biography = models.TextField()
-    twitter = models.CharField(max_length=100, null=True, help_text="Please enter only the user name eg.'mawy_7' ", default=" ")
-    linkedin = models.CharField(max_length=100, null=True, help_text="Please enter only the user name eg. in/mawy7 ", default=" ")
-    website = models.CharField(max_length=100, null=True, default=" ")
+    twitter = models.CharField(max_length=100, null=True, help_text="Please enter only the user name eg.'mawy_7' ", default="", blank=True,)
+    linkedin = models.CharField(max_length=100, null=True, help_text="Please enter only the user name eg. in/mawy7 ", default="", blank=True,)
+    website = models.CharField(max_length=100, null=True, default="", blank=True,)
     created_date = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
     is_visible = models.BooleanField(default=False)

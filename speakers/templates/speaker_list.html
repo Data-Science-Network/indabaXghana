@@ -44,7 +44,8 @@
                             {% if speaker.is_visible %}
                             <div class="lgx-col4 lgx-single-speaker2">
                                 <figure>
-                                    <a class="profile-img" href="{% url 'speaker_detail' speaker.slug %}"><img src="{{ speaker.profile_image.url }}" alt="{{ speaker.speaker_name }}"/></a>
+                                    <a class="profile-img" href="{% url 'speaker_detail' speaker.slug %}"><img src="{{ speaker.profile_image.url }}" width="250"
+                                        height="270" alt="{{ speaker.speaker_name }}"/></a>
                                     <figcaption>
                                         <div class="social-group">
                                             {% if speaker.twitter %}
