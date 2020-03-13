@@ -45,6 +45,7 @@ class Speaker(models.Model):
 
     def __str__(self):
         return self.speaker_name
+        
 
     def save(self, *args, **kwargs):
         if not self.slug:

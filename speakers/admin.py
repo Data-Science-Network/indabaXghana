@@ -1,7 +1,11 @@
+from django_summernote.admin import SummernoteModelAdmin
 from  django.contrib import admin
 from  .models import Speaker
 
-admin.site.register(Speaker)
 
-class SpeakerAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('speaker_name',)}
+
+class SpeakerAdmin(SummernoteModelAdmin):
+    summernote_fields = ('biography',)
+    
+
+admin.site.register(Speaker, SpeakerAdmin)
