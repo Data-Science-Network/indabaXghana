@@ -6945,6 +6945,12 @@ button:hover:after,
   border-radius: 50%;
   margin-right: 5rem;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .lgx-banner-info-circle .info-circle-inner {
   background: url('../img/banner-circle.jpg') top center no-repeat;
   text-align: center;

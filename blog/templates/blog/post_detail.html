@@ -1,107 +1,101 @@
-{% extends 'blog/base.html' %}
-{%load static%}
-{% load hitcount_tags %}
+{% extends "base.html" %}
+{% load i18n static %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog | Ghana Data Science Summit" %}{% endif %}{% endblock %}
 
+{% load hitcount_tags %}
 
 {% block content %}
 
- <!-- Start Header Section-->
- <header id="small-main-header" class="other-main-header-2 gradient-color">
-    
-        <div class="title">
-          <h2 class=""> {{ post.title }}</h2>
-        </div>
-        <p class="breadcrumbs"><a href="/">Home</a> <span>&gt;</span> <a href="/News" class="active">Our
-                Blog</a></p>
-       
-       
-      
-      </header>
-      <!-- End Header Section-->
-      
-      <!-- Start News Section-->
-      <section id="news" class="main-section news-style-2 blog-page-news center-align">
-        
-        <div class="overlay"></div>
-        
-        <div class="container">
-                <div class="single-news">
-              
-                        <div class="news-container z-depth-2">
-                           
-                    <section id="news" data-scroll-index="4" class="main-section news-style-2 blog-page-news center-align">
-                    
-                        <div class="">
-                               <figure>
-                                
-                                <!-- Post Image -->
-                                <img class="responsive-img" src="{{ post.image.url }}" alt="news image">
-                              
-                              </figure>
-                          <div class="p-t-2 grid center-align row">
-                            
-                            <div class="single-news col s12">
-                                 
-                              <div class="info p-b-1">
-                                
-                                <div class="data center-align">
-                                  
-                                  <!-- Post Writer Name -->
-                                  <span>
-                                                    <i class="gradient-color fa fa-user" aria-hidden="true"></i> {{ post.author }}
-                                                </span>
-                                 
-                                  <!--Post Views Count-->
-                                  <span>
-                                                    <i class="fa fa-eye gradient-color" aria-hidden="true"></i>{% get_hit_count for post %}
-                                                </span>
-                                  
-                                     <!-- Post Date -->
-                                {% if post.published_date %}
-                                <span class="date">
-                                                  <i class="gradient-color fa fa-calendar p-tb-1" aria-hidden="true"></i>  {{ post.published_date }}
-                                              </span>
-                              {% endif %}
-                                
-                                               
-                                </div>
-                                
-                                <!-- Post Content -->
-                                <div class="content">
-                                <p class="p-t-1">{{ post.text|linebreaksbr }}</p>
-                                  
-                                </div>
-                              
+    <!--Banner Inner-->
+    <section>
+      <div class="lgx-banner lgx-banner-inner">
+          <div class="lgx-page-inner">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <div class="lgx-heading-area">
+                              <div class="lgx-heading lgx-heading-white">
+                                  <h2 class="heading">{{ post.title }}</h2>
                               </div>
-                              
-                              <hr>
-                              {% if user.is_authenticated %} 
-                                <a class="btn-floating btn-large cyan pulse" href="{% url 'post_edit' post.slug %}"><i class="fa fa-pencil"></i></a>
-                                {% endif %}
-                        
-                        </div>
-                        
+                              <ul class="breadcrumb">
+                                  <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                                  <li><a href="/blog"><i class="fa fa-edit" aria-hidden="true"></i>Blog</a></li>
+                                  <li class="active">{{ post.title }}</li>
+
+                                  
+                              </ul>
+                          </div>
                       </div>
-                    
+                  </div><!--//.ROW-->
+              </div><!-- //.CONTAINER -->
+          </div><!-- //.INNER -->
+      </div>
+  </section> <!--//.Banner Inner-->
+
+
+
+  <main>
+    <div class="lgx-post-wrapper">
+        <!--News-->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <article>
+                            <header>
+                                <figure>
+                                    <img class="responsive-img" src="{{ post.image.url }}" alt="New"/>
+                                </figure>
+                                <div class="text-area">
+                                    <div class="hits-area">
+                                        <div class="date">
+                                          <a href="#"><i class="fa fa-user"></i> {{ post.author }}</a>
+                                            <a href="#"><i class="fa fa-calendar"></i> {{ post.published_date }}</a>
+                                            <a href="#"><i class="fa fa-eye"></i> Hits: {% get_hit_count for post %}</a>
+                                        </div>
+                                    </div>
+                                    <h1 class="title">{{ post.title }}</h1>
+                                </div>
+                            </header>
+                            <section>
+                                <p>
+                                  {{ post.text|linebreaksbr }}
+                                </p>
+                            </section>
+<!-- 
+                            <footer>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4 class="title">Share</h4>
+                                        <div class="lgx-share">
+                                            <ul class="list-inline lgx-social">
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                          -->
+
+                        </article>
                     </div>
-                  
-                  </section>
-                        
-                        </div>
-                      
                 </div>
-        </div>
-      
-      </section>
-      <!-- End News Section-->
+            </div><!-- //.CONTAINER -->
+        </section>
+        <!--News END-->
+    </div>
+</main>
 
 
 
 
-    
-    
 
 
+{% include 'footerO.html' %}
 
 
       

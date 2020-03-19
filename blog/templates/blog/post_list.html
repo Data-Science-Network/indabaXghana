@@ -1,105 +1,71 @@
-{% extends 'blog/base.html' %}
-{%load static%}
+{% extends "base.html" %}
+{% load i18n static %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog | Ghana Data Science Summit" %}{% endif %}{% endblock %}
+
 {% load hitcount_tags %}
 
 {% block content %}
 
- <!-- Start Header Section-->
- <header id="small-main-header" class="other-main-header-2 gradient-color">
-    
-        <div class="title">
-          <h2 class="">Our Blog</h2>
-        </div>
-        
-        <p class="breadcrumbs"><a href="/">Home</a> <span>&gt;</span> <a href="/News" class="active">Our
-                Blog</a></p>
-      
-      </header>
-      <!-- End Header Section-->
-      
-      <!-- Start News Section-->
-      <section id="news" class="main-section news-style-2 blog-page-news center-align">
-        
-        <div class="overlay"></div>
-        
-        <div class="container">
-          
-<div class="row">
-        
-        <div class="col s12">
-          
-          <div class="p-t-2 grid center-align row">
-            {% for post in posts %}
-            
-            <div class="single-news col s12 m6 l4">
-              
-              <div class="news-container z-depth-2">
-                
-                <!-- Link to the blog news post -->
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                  
-                  <figure class="figure">
-                    
-                    <!--Blog News Image-->
-                    <img class="image" src="{{ post.image.url }}" alt="News Image"/>
-                    
-                    <!--Overlay Background Color-->
-                    <div class="overlay gradient-color"></div>
-                    
-                    <figcaption class="caption">
-                      
-                      <div class="stats">
-                        <i class="fa fa-eye"></i> {% get_hit_count for post %}
-                        <br>
+    <!--Banner Inner-->
+    <section>
+      <div class="lgx-banner lgx-banner-inner">
+          <div class="lgx-page-inner">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <div class="lgx-heading-area">
+                              <div class="lgx-heading lgx-heading-white">
+                                  <h2 class="heading">Blog</h2>
+                              </div>
+                              <ul class="breadcrumb">
+                                  <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                                  <li class="active">Blog</li>
+                              </ul>
+                          </div>
                       </div>
-                    
-                    </figcaption>
-                  
-                  </figure>
-                
-                </a>
-                
-                <div class="info p-b-1">
-                  
-                  <div class="data">
-                    
-                    <!-- Post Writer Name -->
-                    <span><i class="gradient-color fa fa-user" aria-hidden="true"></i> {{ post.author }}</span>
-                    <!-- Post Date -->
-                    <span class="date"><i class="gradient-color fa fa-calendar p-tb-1" aria-hidden="true"></i>{{ post.published_date }}</span>
-                  
-                  </div>
-                  
-                  <!-- Post Title -->
-                  <a href="{% url 'post_detail' post.slug %}" class="p-t-1">
-                    <h6>{{ post.title }}</h6>
-                  </a>
-                  
-                  <!-- Post Excerpt -->
-                  <p class="p-t-1">{{ post.text|linebreaksbr | truncatewords:20 }}</p>
-                  
-                  <a href="{% url 'post_detail' post.slug %}" class="m-t-1 gradient-color button-main">
-                    <span>Read More</span>
-                    <i class="fa fa-angle-double-right"></i>
-                  </a>
-                
+                  </div><!--//.ROW-->
+              </div><!-- //.CONTAINER -->
+          </div><!-- //.INNER -->
+      </div>
+  </section> <!--//.Banner Inner-->
+
+
+
+  <main>
+    <div class="lgx-page-wrapper">
+        <!--News-->
+        <section>
+            <div class="container">
+                <div class="row">
+                  {% for post in posts %}
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="lgx-single-news">
+                            <figure>
+                                <a href="{% url 'post_detail' post.slug %}"><img class="responsive-img img-fluid center" src="{{ post.image.url }}"  alt=""  width="auto" height="172"></a>
+                            </figure>
+                            <div class="single-news-info">
+                                <div class="meta-wrapper">
+                                    <span>{{ post.published_date }}</span>
+                                    <span>by <a href="#">{{ post.author }}</a></span>
+                                    <span><i class="fa fa-eye"></i> {% get_hit_count for post %}</span>
+                                </div>
+                                <h3 class="title"><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
+                                <p class="p-t-1">{{ post.text | truncatewords:20 }}</p>
+                                <a class="lgx-btn lgx-btn-white lgx-btn-sm" href="{% url 'post_detail' post.slug %}"><span>Read More</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
-              
-              </div>
-            
             </div>
-            {% endfor %}
+        </section>
+    </div>
+  </main>
 
-          </div>
-          
-        </div>
-        
-      
-</div>
-        </div>
-      
-      </section>
-      <!-- End News Section-->
 
+
+    
+
+  {% include 'footerO.html' %}
 
 {% endblock %}
